@@ -1,4 +1,4 @@
-module go-base-utils
+module github.com/vucongthanh92/go-base-utils
 
 go 1.22.7
 
