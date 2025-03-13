@@ -12,7 +12,7 @@ import (
 )
 
 // ConnectDB thiết lập kết nối database với GORM
-func ConnectDB(dbType string, connectionString string) (*gorm.DB, error) {
+func GormConnectDB(dbType string, connectionString string) (*gorm.DB, error) {
 	var dialector gorm.Dialector
 
 	switch dbType {
