@@ -1,7 +1,7 @@
 package middlewares
 
 import (
-	"go-base-utils/localization"
+	"github.com/vucongthanh92/go-base-utils/localization"
 
 	"github.com/gin-gonic/gin"
 )

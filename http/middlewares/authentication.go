@@ -4,11 +4,9 @@ import (
 	"net/http"
 	"strings"
 
-	"go-base-utils/http/request"
-
-	"go-base-utils/logger"
-
-	jwtToken "go-base-utils/token"
+	"github.com/vucongthanh92/go-base-utils/http/request"
+	"github.com/vucongthanh92/go-base-utils/logger"
+	jwtToken "github.com/vucongthanh92/go-base-utils/token"
 
 	"github.com/gin-gonic/gin"
 	"github.com/mitchellh/mapstructure"

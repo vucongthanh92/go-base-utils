@@ -4,7 +4,7 @@ import (
 	"os"
 	"strings"
 
-	"go-base-utils/vault"
+	"github.com/vucongthanh92/go-base-utils/vault"
 
 	vaultgo "github.com/mittwald/vaultgo"
 	"github.com/spf13/viper"

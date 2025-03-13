@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	jwtToken "go-base-utils/token"
+	jwtToken "github.com/vucongthanh92/go-base-utils/token"
 
 	"github.com/gin-gonic/gin"
 	"github.com/mitchellh/mapstructure"

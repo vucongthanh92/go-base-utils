@@ -7,8 +7,8 @@ import (
 	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	"go-base-utils/grpc/interceptors"
-	"go-base-utils/logger"
+	"github.com/vucongthanh92/go-base-utils/grpc/interceptors"
+	"github.com/vucongthanh92/go-base-utils/logger"
 
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	grpc_retry "github.com/grpc-ecosystem/go-grpc-middleware/retry"

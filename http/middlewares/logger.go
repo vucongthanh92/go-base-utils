@@ -14,7 +14,7 @@ import (
 	"go.opentelemetry.io/otel/trace"
 	"go.uber.org/zap/zapcore"
 
-	"go-base-utils/logger"
+	"github.com/vucongthanh92/go-base-utils/logger"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"

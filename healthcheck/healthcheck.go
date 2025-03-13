@@ -4,10 +4,10 @@ import (
 	"context"
 	"time"
 
-	"go-base-utils/constants"
-	"go-base-utils/http/middlewares"
-	"go-base-utils/logger"
-	"go-base-utils/saga/retry"
+	"github.com/vucongthanh92/go-base-utils/constants"
+	"github.com/vucongthanh92/go-base-utils/http/middlewares"
+	"github.com/vucongthanh92/go-base-utils/logger"
+	"github.com/vucongthanh92/go-base-utils/saga/retry"
 
 	"github.com/gin-gonic/gin"
 	"github.com/heptiolabs/healthcheck"

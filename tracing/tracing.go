@@ -1,7 +1,7 @@
 package tracing
 
 import (
-	"go-base-utils/logger"
+	"github.com/vucongthanh92/go-base-utils/logger"
 
 	"github.com/uptrace/opentelemetry-go-extra/otelzap"
 	"go.opentelemetry.io/otel"

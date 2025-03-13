@@ -1,7 +1,7 @@
 package middlewares
 
 import (
-	"go-base-utils/logger"
+	"github.com/vucongthanh92/go-base-utils/logger"
 
 	"github.com/gin-gonic/gin"
 	limiter "github.com/ulule/limiter/v3"

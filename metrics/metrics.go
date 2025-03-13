@@ -1,9 +1,8 @@
 package metrics
 
 import (
-	"go-base-utils/logger"
-
-	"go-base-utils/http/middlewares"
+	"github.com/vucongthanh92/go-base-utils/http/middlewares"
+	"github.com/vucongthanh92/go-base-utils/logger"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"

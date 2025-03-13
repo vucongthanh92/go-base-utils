@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"runtime/debug"
 
-	"go-base-utils/logger"
-	"go-base-utils/slack"
+	"github.com/vucongthanh92/go-base-utils/logger"
+	"github.com/vucongthanh92/go-base-utils/slack"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"

@@ -3,7 +3,7 @@ package metrics
 import (
 	"fmt"
 
-	"go-base-utils/logger"
+	"github.com/vucongthanh92/go-base-utils/logger"
 
 	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"

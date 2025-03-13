@@ -13,8 +13,9 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	interceptors "go-base-utils/grpc/interceptors"
-	"go-base-utils/logger"
+	"github.com/vucongthanh92/go-base-utils/logger"
+
+	interceptors "github.com/vucongthanh92/go-base-utils/grpc/interceptors"
 
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	grpc_recovery "github.com/grpc-ecosystem/go-grpc-middleware/recovery"

@@ -1,8 +1,9 @@
 package server
 
 import (
-	"go-base-utils/logger"
-	"go-base-utils/metrics"
+	"github.com/vucongthanh92/go-base-utils/metrics"
+
+	"github.com/vucongthanh92/go-base-utils/logger"
 )
 
 type HttpServerConfig struct {

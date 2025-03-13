@@ -3,7 +3,7 @@ package interceptors
 import (
 	"context"
 
-	"go-base-utils/localization"
+	"github.com/vucongthanh92/go-base-utils/localization"
 
 	"google.golang.org/grpc"
 )

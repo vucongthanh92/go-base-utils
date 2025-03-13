@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"go-base-utils/logger"
+	"github.com/vucongthanh92/go-base-utils/logger"
 
 	"go.uber.org/zap"
 	"google.golang.org/grpc"

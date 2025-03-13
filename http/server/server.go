@@ -8,11 +8,11 @@ import (
 	"syscall"
 	"time"
 
-	midd "go-base-utils/http/middlewares"
+	midd "github.com/vucongthanh92/go-base-utils/http/middlewares"
 
-	"go-base-utils/logger"
+	"github.com/vucongthanh92/go-base-utils/logger"
 
-	"go-base-utils/metrics"
+	"github.com/vucongthanh92/go-base-utils/metrics"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
