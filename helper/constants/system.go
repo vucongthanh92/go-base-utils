@@ -10,6 +10,13 @@ const (
 )
 
 const (
+	InvalidValue       = "InvalidValue"
+	InvalidLength      = "InvalidLength"
+	InvalidEmailFormat = "InvalidEmailFormat"
+	UserStatusVerified = "verified"
+)
+
+const (
 	Yaml               = "yaml"
 	Gzip               = "gzip"
 	Redis              = "redis"
