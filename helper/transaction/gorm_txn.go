@@ -9,7 +9,7 @@ import (
 	"gorm.io/gorm"
 )
 
-type GormReadDb *gorm.DB
+// type GormReadDb *gorm.DB
 type GormWriteDb *gorm.DB
 
 var runnerKey = struct{}{}
