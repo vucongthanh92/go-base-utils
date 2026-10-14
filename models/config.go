@@ -283,3 +283,27 @@ type KafkaTopicsConfig struct {
 }
 
 // end config for kafka v2 -------------------------------------
+
+type ClientConfig struct {
+	UserService   string `mapstructure:"userService"`
+	CommonService string `mapstructure:"commonService"`
+}
+
+type HealthcheckConfig struct {
+	Interval           int    `mapstructure:"interval"`
+	Port               string `mapstructure:"port"`
+	GoroutineThreshold int    `mapstructure:"goroutineThreshold"`
+}
+
+type SePayConfig struct {
+	Environment             string   `mapstructure:"environment"`
+	MerchantID              string   `mapstructure:"merchantId"`
+	SecretKey               string   `mapstructure:"secretKey"`
+	CheckoutURL             string   `mapstructure:"checkoutUrl"`
+	SuccessURL              string   `mapstructure:"successUrl"`
+	ErrorURL                string   `mapstructure:"errorUrl"`
+	CancelURL               string   `mapstructure:"cancelUrl"`
+	WebhookSecret           string   `mapstructure:"webhookSecret"`
+	ReceivingAccountNumbers []string `mapstructure:"receivingAccountNumbers"`
+	TimestampToleranceSec   int64    `mapstructure:"timestampToleranceSec"`
+}
