@@ -254,3 +254,32 @@ type SSOClientConfig struct {
 	RedirectURIs []string `mapstructure:"redirect_uris"`
 	Scopes       []string `mapstructure:"scopes"`
 }
+
+type MessageRateLimitConfig struct {
+	Enabled      bool                  `mapstructure:"enabled"`
+	Burst        RateLimitWindowConfig `mapstructure:"burst"`
+	Conversation RateLimitWindowConfig `mapstructure:"conversation"`
+	User         RateLimitWindowConfig `mapstructure:"user"`
+}
+
+type RateLimitWindowConfig struct {
+	Limit         int `mapstructure:"limit"`
+	WindowSeconds int `mapstructure:"windowSeconds"`
+}
+
+// config for kafka v2 -------------------------------------
+// KafkaConfigV2 holds the configuration for Kafka integration in version 2,
+type KafkaConfigV2 struct {
+	Brokers []string          `mapstructure:"brokers"`
+	GroupID string            `mapstructure:"groupID"`
+	Topics  KafkaTopicsConfig `mapstructure:"topics"`
+}
+
+type KafkaTopicsConfig struct {
+	UserEvents         string `mapstructure:"userEvents"`
+	ChatEvents         string `mapstructure:"chatEvents"`
+	AssistantRequested string `mapstructure:"assistantRequested"`
+	AssistantResponded string `mapstructure:"assistantResponded"`
+}
+
+// end config for kafka v2 -------------------------------------
