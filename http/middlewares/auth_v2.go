@@ -87,3 +87,55 @@ func unauthorized(c *gin.Context, code, msg string) {
 	resErr.ExposeHttpError(c)
 	c.Abort()
 }
+
+// VerifyToken verifies the JWT token from the Authorization header, checks its validity, expiration, and denylist status.
+// It returns the claims if valid or an error builder if invalid.
+func VerifyToken(
+	ctx context.Context,
+	tokenStr string,
+	deny TokenDenylistI,
+	keyResolver func(context.Context, string) (any, *httpError.ErrorBuilder),
+) (jwt.MapClaims, *httpError.ErrorBuilder) {
+
+	// Parse the token with the provided key resolver function.
+	token, err := jwt.Parse(tokenStr, func(t *jwt.Token) (any, error) {
+		if _, ok := t.Method.(*jwt.SigningMethodRSA); !ok {
+			return nil, jwt.ErrSignatureInvalid
+		}
+		kid, _ := t.Header["kid"].(string)
+		key, resErr := keyResolver(ctx, kid)
+		if resErr != nil || key == nil {
+			return nil, jwt.ErrSignatureInvalid
+		}
+		return key, nil
+	})
+
+	if err != nil || !token.Valid {
+		return nil, httpError.InitErrorBuilder(ctx).
+			SetStatus(http.StatusUnauthorized).
+			SetError(models.ErrorDTO{Code: "invalid_token", Field: "authorization token", Message: "Token is invalid"})
+	}
+
+	claims, ok := token.Claims.(jwt.MapClaims)
+	if !ok || !claims.VerifyExpiresAt(time.Now().Unix(), true) {
+		return nil, httpError.InitErrorBuilder(ctx).
+			SetStatus(http.StatusUnauthorized).
+			SetError(models.ErrorDTO{Code: "token_expired", Field: "authorization token", Message: "Token expired"})
+	}
+
+	if jti, _ := claims["jti"].(string); jti != "" {
+		blocked, derr := deny.IsBlocked(ctx, jti)
+		if derr != nil {
+			return nil, httpError.InitErrorBuilder(ctx).
+				SetStatus(http.StatusUnauthorized).
+				SetError(models.ErrorDTO{Code: "system_error", Field: "authorization token", Message: "Denylist check failed"})
+		}
+		if blocked {
+			return nil, httpError.InitErrorBuilder(ctx).
+				SetStatus(http.StatusUnauthorized).
+				SetError(models.ErrorDTO{Code: "token_revoked", Field: "authorization token", Message: "Token revoked"})
+		}
+	}
+
+	return claims, nil
+}
